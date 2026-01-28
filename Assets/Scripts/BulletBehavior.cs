@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;using UnityEngine;
+using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour
 {
@@ -9,10 +9,5 @@ public class BulletBehavior : MonoBehaviour
     void Start()
     {
         Destroy(this.gameObject, OnscreenDelay);
-    }
-
-    void Update()
-    {
-        
     }
 }

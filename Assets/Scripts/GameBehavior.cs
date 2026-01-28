@@ -5,31 +5,9 @@ using UnityEngine.UI;
 public class GameBehavior : MonoBehaviour
 {
     public Button WinButton;
-    public int ItemsCollected
 
-    {
-        get { return _itemsCollected; }
-        set
-        {
-            _itemsCollected = value;
-            ItemText.text = "Items: " + Items;
- 
-            if (_itemsCollected >= MaxItems)
-            {
-                ProgressText.text = "You've found all the items!";
-          
-                // 3
-                WinButton.gameObject.SetActive(true);
-            }
-            else
-            {
-                ProgressText.text = "Item found, only " + 
-                    (MaxItems - _itemsCollected) + " more to go!";
-            }
-        }
-    }
 
-    public int MaxItems = 4;
+    public int MaxItems = 1;
     // 3
     public TMP_Text HealthText;     
     public TMP_Text ItemText;
@@ -38,8 +16,8 @@ public class GameBehavior : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ItemText.text += _itemsCollected;
-        HealthText.text += _playerHP;
+        ItemText.text = "Items: " + _itemsCollected;
+        HealthText.text = "Health: " + _playerHP;
     }
 
     private int _itemsCollected = 0;
@@ -51,6 +29,21 @@ public class GameBehavior : MonoBehaviour
         set { 
                 _itemsCollected = value; 
                 Debug.LogFormat("Items: {0}", _itemsCollected);
+                ItemText.text = "Items: " + Items;
+
+                if (_itemsCollected >= MaxItems)
+                {
+                    Debug.Log("Test.");
+                    ProgressText.text = "You've found all the items!";
+            
+                    // 3
+                    WinButton.gameObject.SetActive(true);
+                }
+                else
+                {
+                    ProgressText.text = "Item found, only " + 
+                        (MaxItems - _itemsCollected) + " more to go!";
+                }
         }
     }
     // 4
@@ -61,6 +54,7 @@ public class GameBehavior : MonoBehaviour
         get { return _playerHP; }
         set { 
                 _playerHP = value; 
+                HealthText.text = "Health: " + HP;
                 Debug.LogFormat("Lives: {0}", _playerHP);
          }
     }
