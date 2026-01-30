@@ -33,11 +33,9 @@ public class GameBehavior : MonoBehaviour
 
                 if (_itemsCollected >= MaxItems)
                 {
-                    Debug.Log("Test.");
                     ProgressText.text = "You've found all the items!";
-            
-                    // 3
                     WinButton.gameObject.SetActive(true);
+                    Time.timeScale = 0f; // Pause the game
                 }
                 else
                 {
